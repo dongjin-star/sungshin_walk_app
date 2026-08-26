@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+:root {
+  /* Base — 사진을 방해하지 않는 종이 톤 */
+  --bg: #faf8f4;
+  --surface: #ffffff;
+  --surface-sunk: #f2efe8;
+
+  /* Text */
+  --ink: #1c1f1d;
+  --ink-muted: #5f625b;
+  --ink-faint: #9a9c94;
+
+  /* Line */
+  --line: #e6e1d7;
+  --line-strong: #d3ccbe;
+
+  /* Accent — UI 조작 전용. 무드 색과 섞지 않는다 */
+  --accent: #2e4a3c;
+  --accent-hover: #223829;
+  --accent-soft: #e7ede8;
+  --on-accent: #faf8f4;
+
+  /* Status */
+  --warn: #b4762a;
+  --warn-soft: #f3e2dd;
+  --error: #a34133;
+  --dim: rgba(28, 31, 29, 0.45);
+  --dim-strong: rgba(28, 31, 29, 0.5);
+
+  /* 화면별 예외 배경 */
+  --capture-bg: #111413;
+
+  /* Radius */
+  --radius-card: 12px;
+  --radius-photo-lg: 14px;
+  --radius-photo-onboard: 16px;
+  --radius-sheet: 20px;
+  --radius-btn: 10px;
+  --radius-btn-sm: 8px;
+  --radius-pill: 999px;
+  --radius-modal: 16px;
+
+  /* Shadow */
+  --shadow-pin: 0 2px 8px rgba(28, 31, 29, 0.18);
+  --shadow-badge: 0 2px 6px rgba(28, 31, 29, 0.08);
+  --shadow-sheet: 0 -4px 16px rgba(28, 31, 29, 0.08);
+  --shadow-sheet-strong: 0 -6px 20px rgba(28, 31, 29, 0.15);
+  --shadow-fab: 0 4px 12px rgba(28, 31, 29, 0.25);
+  --shadow-toast: 0 4px 16px rgba(28, 31, 29, 0.3);
+  --shadow-onboard-photo: 0 8px 24px rgba(28, 31, 29, 0.12);
+  --shadow-dropdown: 0 6px 18px rgba(28, 31, 29, 0.14);
+
+  /* Layout */
+  --tabbar-height: 80px;
+  --fab-size: 60px;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-sunk: var(--surface-sunk);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-on-accent: var(--on-accent);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-error: var(--error);
+  --color-capture-bg: var(--capture-bg);
+  --font-sans: var(--font-pretendard-local), -apple-system, BlinkMacSystemFont,
+    "Malgun Gothic", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 타이포그래피 토큰 — PRD 14.4 */
+.text-onboard-h {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+}
+.text-h1 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.text-caption {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.text-body {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.text-meta {
+  font-size: 13px;
+  font-weight: 400;
+}
+.text-label {
+  font-size: 12px;
+  font-weight: 500;
+}
+.text-counter {
+  font-size: 15px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 정적 스켈레톤 — shimmer 애니메이션 금지 (PRD 14.6) */
+.skeleton {
+  background: var(--surface-sunk);
+  border-radius: 6px;
+}
+
+/* 온보딩 시각 요소 등장 애니메이션 — PRD 7.2 */
+@keyframes onboardPopIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes onboardFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 지도 선택 핀 캡션 말풍선 (Leaflet 기본 툴팁 스타일 대체) */
+.leaflet-tooltip.pin-tooltip {
+  background: var(--ink);
+  color: var(--on-accent);
+  border: none;
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: none;
+  max-width: 220px;
+  white-space: normal;
+}
+.leaflet-tooltip.pin-tooltip::before {
+  border-top-color: var(--ink);
+}
+.leaflet-container {
+  background: var(--surface-sunk);
+  font-family: var(--font-sans);
+}
+.leaflet-control-attribution {
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.7) !important;
+}
