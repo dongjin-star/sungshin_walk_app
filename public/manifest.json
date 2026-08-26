@@ -1,17 +1,43 @@
 {
+  "id": "/",
   "name": "워크크",
   "short_name": "워크크",
   "description": "산책이 기록이 되는 순간",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
   "background_color": "#faf8f4",
   "theme_color": "#faf8f4",
   "orientation": "portrait",
   "lang": "ko",
+  "categories": ["lifestyle", "photo", "social"],
   "icons": [
     { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
     { "src": "/icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "촬영하기",
+      "short_name": "촬영",
+      "description": "바로 카메라를 열어 장면을 기록해요",
+      "url": "/capture",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "피드",
+      "short_name": "피드",
+      "description": "지난 산책 기록을 되짚어봐요",
+      "url": "/feed",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "대시보드",
+      "short_name": "대시보드",
+      "description": "내가 찍은 것들의 태그·무드 분포를 봐요",
+      "url": "/dashboard",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
   ]
 }
