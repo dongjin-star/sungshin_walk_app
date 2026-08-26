@@ -8,12 +8,6 @@ import { env } from "@/lib/env";
  * setAll 실패는 조용히 무시한다 — 세션 갱신은 proxy.ts가 전담한다.
  */
 export async function createClient() {
-  if (!env.supabaseUrl || !env.supabaseAnonKey) {
-    throw new Error(
-      "Supabase 환경변수가 설정되지 않았습니다. .env.local에 NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY를 입력하세요."
-    );
-  }
-
   const cookieStore = await cookies();
 
   return createServerClient(env.supabaseUrl, env.supabaseAnonKey, {
